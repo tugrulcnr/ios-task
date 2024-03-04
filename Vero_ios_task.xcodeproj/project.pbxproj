@@ -15,6 +15,8 @@
 		7FEE1BF42B95259C00A5D92B /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1BF32B95259C00A5D92B /* ErrorMessage.swift */; };
 		7FEE1BF62B9525C900A5D92B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1BF52B9525C900A5D92B /* NetworkManager.swift */; };
 		7FEE1BFB2B952A7C00A5D92B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1BFA2B952A7B00A5D92B /* Task.swift */; };
+		7FEE1CB02B96517400A5D92B /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1CAF2B96517400A5D92B /* UserDataManager.swift */; };
+		7FEE1CB22B96521000A5D92B /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1CB12B96521000A5D92B /* UserDefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		7FEE1BF32B95259C00A5D92B /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		7FEE1BF52B9525C900A5D92B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7FEE1BFA2B952A7B00A5D92B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		7FEE1CAF2B96517400A5D92B /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		7FEE1CB12B96521000A5D92B /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		7FEE1BD92B951C7F00A5D92B /* Vero_ios_task */ = {
 			isa = PBXGroup;
 			children = (
+				7FEE1CAE2B9650FD00A5D92B /* CoreData */,
 				7FEE1BF72B952A2F00A5D92B /* ViewModel */,
 				7FEE1BF22B95258300A5D92B /* Utilities */,
 				7FEE1BF12B95246900A5D92B /* NetworkManager */,
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				7FEE1BF32B95259C00A5D92B /* ErrorMessage.swift */,
+				7FEE1CB12B96521000A5D92B /* UserDefaultsKeys.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -119,6 +125,14 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7FEE1CAE2B9650FD00A5D92B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7FEE1CAF2B96517400A5D92B /* UserDataManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,9 +205,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FEE1CB02B96517400A5D92B /* UserDataManager.swift in Sources */,
 				7FEE1BF42B95259C00A5D92B /* ErrorMessage.swift in Sources */,
 				7FEE1BDF2B951C7F00A5D92B /* ViewController.swift in Sources */,
 				7FEE1BF62B9525C900A5D92B /* NetworkManager.swift in Sources */,
+				7FEE1CB22B96521000A5D92B /* UserDefaultsKeys.swift in Sources */,
 				7FEE1BDB2B951C7F00A5D92B /* AppDelegate.swift in Sources */,
 				7FEE1BFB2B952A7C00A5D92B /* Task.swift in Sources */,
 				7FEE1BDD2B951C7F00A5D92B /* SceneDelegate.swift in Sources */,
