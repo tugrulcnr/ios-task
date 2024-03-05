@@ -60,7 +60,7 @@ class NetworkManager {
     
     func fetchTasks(accessToken: String, completion: @escaping (Result<[Task], Error>) -> Void) {
         
-        var tasks = [Task]()
+        var tasks   = [Task]()
         let headers = [
             "Authorization": "Bearer \(accessToken)"
         ]
@@ -74,7 +74,6 @@ class NetworkManager {
                 completion(.failure(error!))
                 return
             }
-
             do {
                 tasks = try JSONDecoder().decode([Task].self, from: data)
                 completion(.success(tasks))

@@ -4,60 +4,78 @@
 //
 //  Created by ertugrul on 4.03.2024.
 //
-
 import UIKit
 
 class ViewController: UIViewController {
-    
-    var tasks = [Task]()
-        
+
+    let viewModel = TaskViewModel()
+
+        let collectionView: UICollectionView = {
+            let layout = UICollectionViewFlowLayout()
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.backgroundColor = .systemBackground
+            return collectionView
+        }()
+
+        let searchBar: UISearchBar = {
+            let searchBar = UISearchBar()
+            searchBar.translatesAutoresizingMaskIntoConstraints = false
+            searchBar.placeholder = "Search"
+            return searchBar
+        }()
+
         override func viewDidLoad() {
             super.viewDidLoad()
             view.backgroundColor = .systemBackground
-            loadTasks()
-        }
-        
-        func loadTasks() {
-            if let savedTasks = UserDataManager.shared.loadTasks() {
-                tasks = savedTasks
-                displayTasks()
-            } else {
-                login()
-            }
-        }
-        
-        func login() {
-            NetworkManager.shared.login(username: "365", password: "1") { result in
+            setupSearchBar()
+            setupCollectionView()
+            viewModel.loadTasks { result in
                 switch result {
-                case .success(let token):
-                    print("Access Token: \(token)")
-                    self.fetchTasks(token: token)
+                case .success:
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        func fetchTasks(token: String) {
-            NetworkManager.shared.fetchTasks(accessToken: token) { result in
-                switch result {
-                case .success(let fetchedTasks):
-                    self.tasks = fetchedTasks
-                    UserDataManager.shared.saveTasks(self.tasks)
-                    self.displayTasks()
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        func displayTasks() {
-            DispatchQueue.main.async {
-                // Use the tasks as needed
-                for task in self.tasks {
-                    print("Task: \(task.task), Title: \(task.title), Description: \(task.description), Color Code: \(task.colorCode)")
                 }
             }
         }
 
+        private func setupSearchBar() {
+            searchBar.delegate = self
+            view.addSubview(searchBar)
+
+            NSLayoutConstraint.activate([
+                searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+        }
+
+        private func setupCollectionView() {
+            collectionView.register(TaskCollectionViewCell.self, forCellWithReuseIdentifier: TaskCollectionViewCell.reuseIdentifier)
+            collectionView.dataSource = self
+            collectionView.delegate = self
+
+            view.addSubview(collectionView)
+
+            NSLayoutConstraint.activate([
+                collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+                collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+
+            if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                layout.minimumInteritemSpacing = 10
+                layout.minimumLineSpacing = 10
+                layout.itemSize = CGSize(width: view.bounds.width - 20, height: 100)
+            }
+        }
     }
+
+
+
+
+

@@ -17,6 +17,10 @@
 		7FEE1BFB2B952A7C00A5D92B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1BFA2B952A7B00A5D92B /* Task.swift */; };
 		7FEE1CB02B96517400A5D92B /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1CAF2B96517400A5D92B /* UserDataManager.swift */; };
 		7FEE1CB22B96521000A5D92B /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1CB12B96521000A5D92B /* UserDefaultsKeys.swift */; };
+		7FEE1CB82B96584F00A5D92B /* TaskCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1CB72B96584F00A5D92B /* TaskCollectionViewCell.swift */; };
+		7FEE1CBB2B972F5400A5D92B /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1CBA2B972F5400A5D92B /* UIColor+Ext.swift */; };
+		7FEE1CBD2B972FCB00A5D92B /* ViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1CBC2B972FCB00A5D92B /* ViewController+Ext.swift */; };
+		7FEE1CC02B97456900A5D92B /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE1CBF2B97456900A5D92B /* TaskViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		7FEE1BFA2B952A7B00A5D92B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		7FEE1CAF2B96517400A5D92B /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		7FEE1CB12B96521000A5D92B /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		7FEE1CB72B96584F00A5D92B /* TaskCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCollectionViewCell.swift; sourceTree = "<group>"; };
+		7FEE1CBA2B972F5400A5D92B /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		7FEE1CBC2B972FCB00A5D92B /* ViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Ext.swift"; sourceTree = "<group>"; };
+		7FEE1CBF2B97456900A5D92B /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +72,10 @@
 		7FEE1BD92B951C7F00A5D92B /* Vero_ios_task */ = {
 			isa = PBXGroup;
 			children = (
+				7FEE1CBE2B97454400A5D92B /* ViewModel */,
+				7FEE1CB92B972F1100A5D92B /* Extensions */,
+				7FEE1CB32B9657CE00A5D92B /* CustomViews */,
 				7FEE1CAE2B9650FD00A5D92B /* CoreData */,
-				7FEE1BF72B952A2F00A5D92B /* ViewModel */,
 				7FEE1BF22B95258300A5D92B /* Utilities */,
 				7FEE1BF12B95246900A5D92B /* NetworkManager */,
 				7FEE1BF02B95244A00A5D92B /* Model */,
@@ -120,19 +130,45 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		7FEE1BF72B952A2F00A5D92B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		7FEE1CAE2B9650FD00A5D92B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				7FEE1CAF2B96517400A5D92B /* UserDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		7FEE1CB32B9657CE00A5D92B /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				7FEE1CB42B9657F000A5D92B /* Cell */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		7FEE1CB42B9657F000A5D92B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7FEE1CB72B96584F00A5D92B /* TaskCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7FEE1CB92B972F1100A5D92B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7FEE1CBA2B972F5400A5D92B /* UIColor+Ext.swift */,
+				7FEE1CBC2B972FCB00A5D92B /* ViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7FEE1CBE2B97454400A5D92B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7FEE1CBF2B97456900A5D92B /* TaskViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,11 +242,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FEE1CB02B96517400A5D92B /* UserDataManager.swift in Sources */,
+				7FEE1CC02B97456900A5D92B /* TaskViewModel.swift in Sources */,
 				7FEE1BF42B95259C00A5D92B /* ErrorMessage.swift in Sources */,
 				7FEE1BDF2B951C7F00A5D92B /* ViewController.swift in Sources */,
 				7FEE1BF62B9525C900A5D92B /* NetworkManager.swift in Sources */,
+				7FEE1CBD2B972FCB00A5D92B /* ViewController+Ext.swift in Sources */,
 				7FEE1CB22B96521000A5D92B /* UserDefaultsKeys.swift in Sources */,
 				7FEE1BDB2B951C7F00A5D92B /* AppDelegate.swift in Sources */,
+				7FEE1CB82B96584F00A5D92B /* TaskCollectionViewCell.swift in Sources */,
+				7FEE1CBB2B972F5400A5D92B /* UIColor+Ext.swift in Sources */,
 				7FEE1BFB2B952A7C00A5D92B /* Task.swift in Sources */,
 				7FEE1BDD2B951C7F00A5D92B /* SceneDelegate.swift in Sources */,
 			);

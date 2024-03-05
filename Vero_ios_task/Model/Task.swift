@@ -12,4 +12,14 @@ struct Task: Codable {
     let title: String
     let description: String
     let colorCode: String
+    
+    let sort: String
+    let wageType: String
+    let BusinessUnitKey: String?
+    let businessUnit: String
+    let parentTaskID: String?
+    let preplanningBoardQuickSelect: String?
+    let workingTime: String?
+    let isAvailableInTimeTrackingKioskMode: Bool
+    
 }

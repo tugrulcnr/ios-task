@@ -8,9 +8,8 @@
 import Foundation
 
 class UserDataManager {
-    static let shared = UserDataManager()
-    
-    private let userDefaults = UserDefaults.standard
+    static let shared           = UserDataManager()
+    private let userDefaults    = UserDefaults.standard
     
     func saveTasks(_ tasks: [Task]) {
         let encoder = JSONEncoder()
