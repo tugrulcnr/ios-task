@@ -71,5 +71,4 @@ class TaskViewModel {
                 task.workingTime?.localizedCaseInsensitiveContains(searchText) ?? false
         }
     }
-
 }
